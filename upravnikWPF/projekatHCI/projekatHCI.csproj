@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1D7EE9A3-85F7-4493-AC45-3DCCE4E764B4}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>projekatHCI</RootNamespace>
+    <AssemblyName>projekatHCI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Syncfusion.Licensing, Version=18.1451.0.48, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.Licensing.18.1.0.48\lib\net451\Syncfusion.Licensing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Syncfusion.SfChart.WPF, Version=18.1451.0.48, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <HintPath>..\packages\Syncfusion.SfChart.WPF.18.1.0.48\lib\net451\Syncfusion.SfChart.WPF.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="pages\Blog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\DodajSpecijalizaciju.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\EvidentiranjeOpreme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Izvestaj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Izvestaj2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Izvestaj3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Izvestaj4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Lekovi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Meni.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Osoblje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\OsobljeLekar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\PremestanjeOpreme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\PremestanjeOpreme2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\PremestanjeOpreme3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\PremestanjeOpreme4.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\PrikazOsoblja.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\PrikazOsobljaSekretar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\RadnoVremeLekara.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\RegistracijaLekara.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Registruj.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\RenovacijaSoba.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Renoviranje.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\SlobodniDaniLekara.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Soba2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Sobe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Specijalizacije.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\StatistickiPodaci.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\StatistickiPodaci2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\StatistickiPodaci3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\UnosNoveSobe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\UnosNoveVrsteLeka.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\UnosOpreme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\UnosOpremeUSobu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="pages\Upravnik.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\Korisnici.cs" />
+    <Compile Include="Model\Lekari.cs" />
+    <Compile Include="Model\Osoba.cs" />
+    <Compile Include="Model\Renoviranje.cs" />
+    <Compile Include="Model\Soba.cs" />
+    <Compile Include="Model\Specijalizacija.cs" />
+    <Compile Include="Model\Lek.cs" />
+    <Compile Include="Model\Oprema.cs" />
+    <Compile Include="Model\Statistika.cs" />
+    <Compile Include="pages\Blog.xaml.cs">
+      <DependentUpon>Blog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\DodajSpecijalizaciju.xaml.cs">
+      <DependentUpon>DodajSpecijalizaciju.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\EvidentiranjeOpreme.xaml.cs">
+      <DependentUpon>EvidentiranjeOpreme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Izvestaj.xaml.cs">
+      <DependentUpon>Izvestaj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Izvestaj2.xaml.cs">
+      <DependentUpon>Izvestaj2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Izvestaj3.xaml.cs">
+      <DependentUpon>Izvestaj3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Izvestaj4.xaml.cs">
+      <DependentUpon>Izvestaj4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Lekovi.xaml.cs">
+      <DependentUpon>Lekovi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Meni.xaml.cs">
+      <DependentUpon>Meni.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Osoblje.xaml.cs">
+      <DependentUpon>Osoblje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\OsobljeLekar.xaml.cs">
+      <DependentUpon>OsobljeLekar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\PremestanjeOpreme.xaml.cs">
+      <DependentUpon>PremestanjeOpreme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\PremestanjeOpreme2.xaml.cs">
+      <DependentUpon>PremestanjeOpreme2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\PremestanjeOpreme3.xaml.cs">
+      <DependentUpon>PremestanjeOpreme3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\PremestanjeOpreme4.xaml.cs">
+      <DependentUpon>PremestanjeOpreme4.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\PrikazOsoblja.xaml.cs">
+      <DependentUpon>PrikazOsoblja.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\PrikazOsobljaSekretar.xaml.cs">
+      <DependentUpon>PrikazOsobljaSekretar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\RadnoVremeLekara.xaml.cs">
+      <DependentUpon>RadnoVremeLekara.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\RegistracijaLekara.xaml.cs">
+      <DependentUpon>RegistracijaLekara.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Registruj.xaml.cs">
+      <DependentUpon>Registruj.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\RenovacijaSoba.xaml.cs">
+      <DependentUpon>RenovacijaSoba.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Renoviranje.xaml.cs">
+      <DependentUpon>Renoviranje.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\SlobodniDaniLekara.xaml.cs">
+      <DependentUpon>SlobodniDaniLekara.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Soba2.xaml.cs">
+      <DependentUpon>Soba2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Sobe.xaml.cs">
+      <DependentUpon>Sobe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Specijalizacije.xaml.cs">
+      <DependentUpon>Specijalizacije.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\StatistickiPodaci.xaml.cs">
+      <DependentUpon>StatistickiPodaci.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\StatistickiPodaci2.xaml.cs">
+      <DependentUpon>StatistickiPodaci2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\StatistickiPodaci3.xaml.cs">
+      <DependentUpon>StatistickiPodaci3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\UnosNoveSobe.xaml.cs">
+      <DependentUpon>UnosNoveSobe.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\UnosNoveVrsteLeka.xaml.cs">
+      <DependentUpon>UnosNoveVrsteLeka.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\UnosOpreme.xaml.cs">
+      <DependentUpon>UnosOpreme.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\UnosOpremeUSobu.xaml.cs">
+      <DependentUpon>UnosOpremeUSobu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\Upravnik.xaml.cs">
+      <DependentUpon>Upravnik.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="pages\ViewModel.cs" />
+    <Compile Include="pages\viewRoomInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\kissclipart-black-and-white-picture-of-envelope-clipart-envelo-6f00df1d3671b924.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\font.png" />
+    <Resource Include="images\menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\color.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\contrast.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\profile.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\halfstar.png" />
+    <Resource Include="images\image.png" />
+    <Resource Include="images\star.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\spot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\searchh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="images\blog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\projekat\ProjekatKlinika.csproj">
+      <Project>{6D3329D9-9098-4801-B588-88A9F5FC84CB}</Project>
+      <Name>ProjekatKlinika</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

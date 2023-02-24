@@ -1,0 +1,84 @@
+﻿<Page x:Class="lekar_wpf.View.WriteArticlePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="WriteArticlePage">
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <ScrollViewer VerticalScrollBarVisibility="Hidden">
+                <Grid Background="White">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="70"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="300"/>
+                    </Grid.RowDefinitions>
+                    <DockPanel Grid.Row="0">
+                        <Label Content="Pisanje clanka" FontSize="22" DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="70"/>
+                        <Separator DockPanel.Dock="Bottom"/>
+                    </DockPanel>
+                    <Label Content="Naslov:" Grid.Row="1" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                    <TextBox MaxLength="100" Grid.Row="2" Margin="20" FontSize="15" Height="30" VerticalAlignment="Top" x:Name="heading" TextChanged="check"/>
+                    <Label Content="Kategorija" Grid.Row="3" FontSize="15" Margin="10" HorizontalAlignment="Center"/>
+                    <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <ComboBox Height="50" Width="200" ItemsSource="{Binding Categories}" FontSize="15" SelectedIndex="0" x:Name="comboBox">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding Name.Value}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                            <Button Content="Dodaj" FontSize="15" Height="50" Width="70" Click="addCategory" BorderThickness="0, 0, 1, 1" BorderBrush="#9c9c9c" Foreground="White" Background="#FF00BFBE" Margin="10, 0, 10, 0"/>
+                        <Image Source="tooltipicon.png" Height="20" Width="20" >
+                            <Image.ToolTip>
+                                <ToolTip Placement="Left" VerticalOffset="20" Background="White" BorderBrush="Black" BorderThickness="1">
+                                    <ToolTip.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="CornerRadius" Value="15, 0, 15, 0"/>
+                                        </Style>
+                                    </ToolTip.Resources>
+                                    <StackPanel Orientation="Vertical" Width="200" >
+                                        <TextBlock Text="Ukoliko zelite da dodate clanak, a za njega ne postoji odgovarajuca kategorija, klikom na dugme Dodaj otvorice se dijalog u kom mozete izvrsiti unos nove kategorije. Nakon sto to uradite, nova kategorija ce se pojaviti u listi postojecih." TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </ToolTip>
+                            </Image.ToolTip>
+                        </Image>
+                    </StackPanel>
+                    <Label Content="Tekst" Grid.Row="6" FontSize="15" Margin="10" HorizontalAlignment="Center"/>
+                    <TextBox MaxLength="2000" Margin="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Row="7" TextWrapping="NoWrap" FontSize="15" VerticalContentAlignment="Top" x:Name="text" TextChanged="check"/>
+                </Grid>
+            </ScrollViewer>
+        </Grid>
+        <DockPanel Grid.Row="1" Height="90">
+            <Button Content="Odustani" DockPanel.Dock="Left" Width="185" Click="leave" Foreground="Black" FontSize="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White" Margin="20, 0, 10, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button IsEnabled="{Binding isButtonEnabled}" Content="Potvrdi" DockPanel.Dock="Right" Click="write" Foreground="White" FontSize="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF00BFBE" Margin="10, 0, 20, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </DockPanel>
+    </Grid>
+</Page>

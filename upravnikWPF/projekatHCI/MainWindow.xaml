@@ -1,0 +1,48 @@
+﻿<Window x:Class="projekatHCI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:projekatHCI"
+        mc:Ignorable="d" Style="{DynamicResource MyStyle}"
+        Title="MainWindow" Height="400" Width="800"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Grid Margin="0,0,0,-31">
+        <Image x:Name="image" HorizontalAlignment="Left" Height="160" Margin="261,18,0,0" VerticalAlignment="Top" Width="257" Source="images/kissclipart-black-and-white-picture-of-envelope-clipart-envelo-6f00df1d3671b924.png" RenderTransformOrigin="0.672,0.509"/>
+        <Label x:Name="label" Content="E-mail" HorizontalAlignment="Left" Margin="261,175,0,0" VerticalAlignment="Top" Width="119"  FontWeight="ExtraLight" RenderTransformOrigin="0.508,0.167"/>
+        <TextBox x:Name="textBox" FontSize="18" FontWeight="ExtraLight" HorizontalAlignment="Left" Height="25" Margin="261,214,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="257"/>
+        <Label x:Name="label1" Content="Lozinka" HorizontalAlignment="Left" Height="49" Margin="261,230,0,0" VerticalAlignment="Top" Width="257"  FontWeight="ExtraLight"/>
+        <TextBox  x:Name="textBox1" FontSize="18" FontWeight="ExtraLight" HorizontalAlignment="Left" Height="25" Margin="261,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="257" />
+        <Button x:Name="button" HorizontalAlignment="Left" Height="38" Margin="272,308,0,0" VerticalAlignment="Top" Width="230"  FontWeight="Bold" FontSize="24" Click="button_Click" Cursor="Hand">Prijavi se
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Background" Value="Linen"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LemonChiffon"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Border BorderBrush="Black" CornerRadius="10" BorderThickness="2" HorizontalAlignment="Left" Height="38" Margin="272,308,0,0" VerticalAlignment="Top" Width="230">
+
+        </Border>
+
+    </Grid>
+</Window>

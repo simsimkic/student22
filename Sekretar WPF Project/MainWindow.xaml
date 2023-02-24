@@ -1,0 +1,193 @@
+﻿<Window x:Class="Sekretar_WPF_Project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:Sekretar_WPF_Project"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="Secretary Overview" Height="600" Width="1000">
+    <Window.Resources>
+        <sys:Int32 x:Key="Theme">0</sys:Int32>
+
+        <Style TargetType="xctk:TimePicker">
+            <Setter Property="FontSize" Value="17"></Setter>
+            <Setter Property="Background" Value="Azure"></Setter>
+        </Style>
+
+        <Style TargetType="DatePicker">
+            <Setter Property="FontSize" Value="12.8"></Setter>
+            <Setter Property="Background" Value="Azure"></Setter>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="Azure"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+        </Style>
+
+        <Style TargetType="TabControl">
+            <Setter Property="Background" Value="WhiteSmoke"></Setter>
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New" Click="MenuItemFileNewClick" />
+                    <MenuItem Header="_Edit" Click="MenuItemFileEditClick" />
+                    <MenuItem Header="_Delete" Click="MenuItemFileDeleteClick" />
+                    <Separator />
+                    <MenuItem Header="E_xit" Click="MenuItemFileExitClick" />
+                </MenuItem>
+                <MenuItem Header="_Other">
+                    <MenuItem Header="_Tutorial" Click="TutorialMenuItem_Click">
+                    </MenuItem>
+                    <MenuItem Header="_Review Software" Click="ReviewSoftware_Click">
+                    </MenuItem>
+                    <MenuItem Header="_Theme">
+                        <RadioButton Name="RadioButtonLight" Checked="RadioButtonLight_Checked">Light</RadioButton>
+                        <RadioButton Name="RadioButtonDark" Checked="RadioButtonDark_Checked">Dark</RadioButton>
+                    </MenuItem>
+                    <MenuItem Header="_Blogs" Click="Blogs_Click">
+                    </MenuItem>
+                </MenuItem>
+            </Menu>
+            <StackPanel Name="Stack1" DockPanel.Dock="Top" Orientation="Vertical" Background="DodgerBlue" >
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Label Name="ClinicLabel" FontWeight="Bold" FontFamily="Copperplate Gothic Bold" Background="White" FontSize="18" Content="Clinic" />
+                    <Image Height="30" Source="/Windows/cliniclogo.png"/>
+
+                </StackPanel>
+            </StackPanel>
+
+
+            <TabControl x:Name="Tabs1">
+                <TabItem Name="GuestTab" Width="120" Height="30" Header="Guests">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left">
+                            <Label Name="label1" FontStyle="Italic" Content="      Search Guest:"/>
+                            <TextBox Name="guesttextbox" Width="140" Height="30" Margin="20,0,30,10" FontStyle="Italic" TextChanged="GuestTextBox_TextChanged"/>
+                            <Button Width="140" Height="30" Margin="20,10,30,10" Click="AddGuestClick">Add Guest</Button>
+                            <Button Width="140" Height="30" Margin="20,10,30,10" Click="LinkToPatientClick">Link to Patient</Button>
+                            <Button Width="140" Height="30" Margin="20,10,30,10" Click="SeeGuestAppointmentsClick">See Appointments</Button>
+                        </StackPanel>
+
+                        <DataGrid Margin="10,10,10,10" Name="dgGuests" AutoGenerateColumns="True" IsReadOnly="True">
+
+                        </DataGrid>
+
+
+                    </DockPanel>
+                </TabItem>
+                <TabItem Name="PatientTab" Width="120" Height="30" Header="Patients">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left">
+                            <Label Name="label2" FontStyle="Italic" Content="      Search Patient:"/>
+                            <TextBox Name="patienttextbox" Width="140" Height="30" Margin="20,0,30,10" FontStyle="Italic" TextChanged="PatientTextBox_TextChanged"/>
+                            <Button Width="140" Height="30" Margin="20,10,30,10" Click="AddPatientClick">Add Patient</Button>
+                            <Button Width="140" Height="30" Margin="20,10,30,10" Click="SeePatientAppointmentsClick">See Appointments</Button>
+                        </StackPanel>
+
+                        <DataGrid Margin="10,10,10,10" Name="dgPatients" IsReadOnly="True">
+                        </DataGrid>
+
+
+                    </DockPanel>
+                </TabItem>
+                <TabItem Name="DoctorTab" Width="120" Height="30" Header="Doctors" HorizontalAlignment="Right" Margin="0">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left">
+                            <Label Name="label3" FontStyle="Italic" Content="      Search Doctor:"/>
+                            <TextBox Name="doctortextbox" Width="140" Height="30" Margin="20,0,30,10" FontStyle="Italic" TextChanged="DoctorTextBox_TextChanged"/>
+                            <Button Width="140" Height="30" Margin="20,10,30,10" Click="SeeDoctorAppointmentsClick">See Appointments</Button>
+                        </StackPanel>
+
+                        <DataGrid Margin="10,10,10,10" Name="dgDoctors" IsReadOnly="True">
+                        </DataGrid>
+
+
+                    </DockPanel>
+                </TabItem>
+                <TabItem Name="AppointmentTab" Width="120" Height="30"  Header="Appointments">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left">
+                            <Label Name="label4" FontStyle="Italic" Content="             Search Patient/Doctor:"/>
+                            <TextBox Name="appointmenttextbox" Width="160" Height="30" Margin="20,0,30,10" FontStyle="Italic" TextChanged="AppointmentTextBox_TextChanged" />
+                            <DockPanel Height="35" Margin="10,10,10,10">
+                                <xctk:TimePicker Name="timepickerstart" DockPanel.Dock="Left" Width="105">
+                                </xctk:TimePicker>
+                                <Label Content=" to" FontSize="14" Width="30"/>
+                                <xctk:TimePicker Name="timepickerend" DockPanel.Dock="Right">
+                                </xctk:TimePicker>
+
+                            </DockPanel>
+
+                            <DockPanel Height="35" Margin="10,20,10,20">
+                                <DatePicker Name="datepickerstart" DockPanel.Dock="Left" Width="105">
+                                </DatePicker>
+                                <Label Content=" to" FontSize="14" Width="30"/>
+                                <DatePicker Name="datepickerend" DockPanel.Dock="Right">
+                                </DatePicker>
+                            </DockPanel>
+
+                            <DockPanel>
+                                <Button Margin ="27,0,0,23" Content="Apply" Width="90" Click="Button_Apply"/>
+                                <Button Margin="0,0,0,23" Content="Reset" Width=" 90" Click="Button_Reset"/>
+                            </DockPanel>
+
+                            <Rectangle Name="Rect1" Fill="LightBlue" Height="2" Margin="0,0,0,20"/>
+                            <Button Width="140" Height="30" Margin="20,0,30,10" Click="ScheduleAppointmentClick">Schedule Appointment</Button>
+                            <Button Width="140" Height="30" Margin="20,10,30,10" Click="RecheduleAppointmentClick">Reschedule Appointment</Button>
+                            <Button Width="140" Height="30" Margin="20,10,30,10" Click="CancelAppointmentClick">Cancel Appointment</Button>
+                        </StackPanel>
+
+                        <DataGrid Margin="10,10,10,10" Name="dgAppointments" IsReadOnly="True">
+                        </DataGrid>
+
+
+                    </DockPanel>
+                </TabItem>
+                <TabItem Name="RoomScheduleTab" Width="120" Height="30"  Header="Room Schedule" HorizontalAlignment="Left" Margin="0">
+                    <DockPanel>
+                        <StackPanel DockPanel.Dock="Left">
+                            <Label Name="label5" FontStyle="Italic" Content="              Select Room:"/>
+                            <ComboBox Name="RoomComboBox" Width="160" Height="30" FontSize="17" Margin="27,0,30,10" ItemsSource="{Binding Rooms}" SelectedIndex="0" IsSynchronizedWithCurrentItem="True"  DisplayMemberPath="RoomNumber" SelectionChanged="RoomComboBox_SelectionChanged"/>
+                            <DockPanel Height="35" Margin="10,10,10,10">
+                                <xctk:TimePicker Name="timepickerrsstart" FontSize="17" DockPanel.Dock="Left" Width="105">
+                                </xctk:TimePicker>
+                                <Label Content=" to" FontSize="14" Width="30"/>
+                                <xctk:TimePicker Name="timepickerrsend" DockPanel.Dock="Right">
+                                </xctk:TimePicker>
+                            </DockPanel>
+
+                            <DockPanel Height="35" Margin="10,20,10,20">
+                                <DatePicker Name="datepickerrsstart" DockPanel.Dock="Left" Width="105">
+                                </DatePicker>
+                                <Label Content=" to" FontSize="14" Width="30"/>
+                                <DatePicker Name="datepickerrsend" DockPanel.Dock="Right">
+                                </DatePicker>
+                            </DockPanel>
+                            <DockPanel>
+                                <Button Margin ="27,0,0,23" Content="Apply" Width="90" Click="Buttonrs_Apply"/>
+                                <Button Margin="0,0,0,23" Content="Reset" Width=" 90" Click="Buttonrs_Reset"/>
+                            </DockPanel>
+
+                            <Rectangle Name="Rect2" Fill="LightBlue" Height="2" Margin="0,0,0,20"/>
+                            <Button Width="140" Height="30" Margin="20,0,30,10" Click="ScheduleAppointmentClick">Schedule Appointment</Button>
+                            <Button Width="140" Height="30" Margin="20,10,30,10" Click="RecheduleAppointmentClick">Reschedule Appointment</Button>
+                            <Button Width="140" Height="30" Margin="20,10,30,10" Click="CancelAppointmentClick">Cancel Appointment</Button>
+                        </StackPanel>
+
+                        <DataGrid Margin="10,10,10,10" Name="dgRoomSchedule" IsReadOnly="True">
+                        </DataGrid>
+
+
+                    </DockPanel>
+                </TabItem>
+            </TabControl>
+        </DockPanel>
+    </Grid>
+</Window>

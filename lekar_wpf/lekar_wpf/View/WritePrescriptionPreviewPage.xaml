@@ -1,0 +1,106 @@
+﻿<Page x:Class="lekar_wpf.View.WritePrescriptionPreviewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="WritePrescriptionPreviewPage">
+
+    <DockPanel Background="White">
+        
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Recept" HorizontalAlignment="Center" FontSize="22"/>
+                <Border Margin="20" Style="{StaticResource datagrid}">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="FontSize" Value="15"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="40"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="40"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="130"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Prezime i ime osiguranog lica</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding selectedPatient.FullName}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Naziv zdravstvene ustanove</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6">Klinika zdravlje</Label>
+                        </DockPanel>
+                        <Separator Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Datum rodjenja osiguranog lica</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding selectedPatient.BirthDate}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Osnov oslobadjanja od participacije</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6">AB2UJ3</Label>
+                        </DockPanel>
+                        <Separator Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Broj zdravstvene knjizice</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding selectedPatient.CardNumber}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">ID broj lekara</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="836284"/>
+                        </DockPanel>
+                        <Separator Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Sifra propisanog leka</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding Code}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Dijagnoza</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding Diagnosis}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Recept</Label>
+                            <TextBlock DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="15" Opacity="0.6" Text="{Binding Recept}" TextWrapping="Wrap"/>
+                        </DockPanel>
+                    </Grid>
+                </Border>
+                <DockPanel Height="90">
+                    <Button Content="Odustani" DockPanel.Dock="Left" Width="185" Click="leave" Foreground="Black" FontSize="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White" Margin="20, 0, 10, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button Content="Potvrdi" DockPanel.Dock="Right" Click="confirm" Foreground="White" FontSize="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF00BFBE" Margin="10, 0, 20, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </DockPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Page>

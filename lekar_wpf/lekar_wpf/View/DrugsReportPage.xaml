@@ -1,0 +1,48 @@
+﻿<Page x:Class="lekar_wpf.View.DrugsReportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf.View"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="DrugsReportPage">
+
+    <DockPanel Background="White">
+        <DockPanel DockPanel.Dock="Bottom">
+            <Button DockPanel.Dock="Left" Width="185" Content="Odustani" Foreground="Black" FontSize="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="White" Margin="20, 0, 10, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button DockPanel.Dock="Right" Width="185" Content="Dalje" Click="nextStep" Foreground="White" FontSize="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF00BFBE" Margin="10, 0, 20, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </DockPanel>
+        <Grid DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="160"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="Izvestaj o potrosnji lekova" Grid.Row="0" FontSize="22" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <Label Grid.Row="1" VerticalAlignment="Center" HorizontalContentAlignment="Center" FontSize="15">Odaberite datume za koje zelite izvestaj</Label>
+            <Label Grid.Row="2" Content="Pocetni datum" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15"/>
+            <DatePicker Grid.Row="3" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FirstDayOfWeek="Monday" x:Name="start" SelectedDateChanged="setEndDate"/>
+            <Label Grid.Row="5" Content="Krajnji datum" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="15"/>
+            <DatePicker Grid.Row="6" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" FirstDayOfWeek="Monday" x:Name="end"/>
+        </Grid>
+    </DockPanel>
+</Page>

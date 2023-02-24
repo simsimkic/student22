@@ -1,0 +1,200 @@
+﻿<Page x:Class="lekar_wpf.View.PatientsProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="PatientsProfilePage">
+
+    <DockPanel Background="White">
+        <DockPanel DockPanel.Dock="Top" Height="86">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0F74F3" Offset="0"/>
+                    <GradientStop Color="#FF00BFBE" Offset="1"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+            <Label DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="35" FontWeight="Light" FontStyle="Oblique" Margin="10">Klinika Zdravlje</Label>
+            <Image DockPanel.Dock="Right" Source="images/notificationicon.png" HorizontalAlignment="Right" Width="40" Height="40" Margin="20" MouseDown="viewNotifications"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical">
+                <Separator DockPanel.Dock="Bottom" Background="Black"/>
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" VerticalAlignment="Bottom">
+                    <Button Width="86" Height="86" Click="viewProfile" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Width="40" Height="40" Source="images/doctoricon.png" Opacity="0.701"/>
+                                <Label FontSize="15" Opacity="0.7">Profil</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewPatients" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/patientsicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Pacijenti</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewDrugs" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/drugsicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Lekovi</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewSchedule" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/scheduleicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Raspored</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewBlog" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/blogicon.png" Width="40" Height="40" Opacity="0.65"/>
+                                <Label FontSize="15" Opacity="0.7">Blog</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="White"/>
+                        <Setter Property="BorderThickness" Value="2"/>
+                        <Setter Property="BorderBrush" Value="Black"/>
+                    </Style>
+                    <Style TargetType="Label">
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="FontSize" Value="15"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="75"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Border Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Height="140" Width="140" CornerRadius="70" Background="White" Style="{StaticResource datagrid}">
+                    <Image Source="images/profileimage.png" Height="100" Width="100"/>
+                </Border>
+                <StackPanel Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Label HorizontalAlignment="Center" FontSize="22" Content="{Binding selectedPatient.FullName}"/>
+                    <Label HorizontalAlignment="Center" Content="{Binding selectedPatient.BirthDate}"/>
+                </StackPanel>
+                <Separator Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="7" VerticalAlignment="Top"/>
+                <Border Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Width="120" Height="120" Style="{StaticResource datagrid}">
+                    <Button BorderBrush="{x:Null}" Click="viewMedicalRecord">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="hospital(1).png" Height="50" Width="50" Margin="0, 0, 0, 10"/>
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center">Zdravstveni karton</TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Border>
+
+                <Border Grid.Row="3" Grid.Column="3" Grid.ColumnSpan="2" Width="120" Height="120" Style="{StaticResource datagrid}">
+                    <Button BorderBrush="{x:Null}" Click="viewReports">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="hospital(1).png" Height="50" Width="50" Margin="0, 0, 0, 10"/>
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center">Izvestaji</TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Border>
+
+                <Border Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Width="120" Height="120" Style="{StaticResource datagrid}">
+                    <Button BorderBrush="{x:Null}" Click="writeReport">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="hospital(1).png" Height="50" Width="50" Margin="0, 0, 0, 10"/>
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center">Napisi izvestaj</TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Border>
+
+                <Border Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="2" Width="120" Height="120" Style="{StaticResource datagrid}">
+                    <Button BorderBrush="{x:Null}" Click="scheduleExamination">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="hospital(1).png" Height="50" Width="50" Margin="0, 0, 0, 10"/>
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center">Zakazi pregled</TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Border>
+
+                <Border Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Width="120" Height="120" Style="{StaticResource datagrid}">
+                    <Button BorderBrush="{x:Null}" Click="scheduleOperation">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="hospital(1).png" Height="50" Width="50" Margin="0, 0, 0, 10"/>
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center">Zakazi operaciju</TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Border>
+
+                <Border Grid.Row="5" Grid.Column="3" Grid.ColumnSpan="2" Width="120" Height="120" Style="{StaticResource datagrid}">
+                    <Button BorderBrush="{x:Null}" Click="hospitalize">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="hospital(1).png" Height="50" Width="50" Margin="0, 0, 0, 10"/>
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center">Hospitalizuj</TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Border>
+
+                <Border Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Width="120" Height="120" Style="{StaticResource datagrid}">
+                    <Button BorderBrush="{x:Null}" Click="writeLaboratoryReferral">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="hospital(1).png" Height="50" Width="50" Margin="0, 0, 0, 10"/>
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center">Izdaj uput za laboratoriju</TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Border>
+
+                <Border Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2" Width="120" Height="120" Style="{StaticResource datagrid}">
+                    <Button BorderBrush="{x:Null}" Click="writePrescription">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="hospital(1).png" Height="50" Width="50" Margin="0, 0, 0, 10"/>
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center">Izdaj recept</TextBlock>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+</Page>

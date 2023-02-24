@@ -1,0 +1,18 @@
+﻿<Window x:Class="lekar_wpf.View.LaboratoryReferralDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lekar_wpf.View"
+        mc:Ignorable="d"
+        Title="LaboratoryReferralDialog" WindowStyle="None"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        Height="240" Width="360">
+    <Border BorderBrush="#9c9c9c" BorderThickness="1, 1, 3, 3">
+        <DockPanel>
+            <Button DockPanel.Dock="Bottom" Content="Zatvori" FontSize="15" Height="70" Click="leave" BorderBrush="#9c9c9c" BorderThickness="1, 1, 3, 3" Margin="20" Foreground="White" Background="#FF00BFBE"/>
+            <Label DockPanel.Dock="Top" Content="Uspesno izdat uput za laboratoriju!" FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </DockPanel>
+    </Border>
+    
+</Window>

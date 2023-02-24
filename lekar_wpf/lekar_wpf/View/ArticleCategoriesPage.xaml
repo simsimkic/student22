@@ -1,0 +1,50 @@
+﻿<Page x:Class="lekar_wpf.View.ArticleCategoriesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf.View"
+      xmlns:app="clr-namespace:lekar_wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="ArticleCategoriesPage">
+
+    <DockPanel Background="White">
+        <DockPanel Height="90" DockPanel.Dock="Bottom">
+            <Button DockPanel.Dock="Left" Click="leave" FontSize="15" Margin="20, 0, 20, 20" BorderBrush="#9c9c9c" BorderThickness="1, 1, 3, 3" Foreground="White" Background="#FF00BFBE">Zatvori</Button>
+        </DockPanel>
+        <StackPanel DockPanel.Dock="Top" HorizontalAlignment="Stretch">
+            <StackPanel.Resources>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="BorderThickness" Value="0"/>
+                            <Setter Property="Background" Value="#FFFDFDFD"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Resources>
+            <DockPanel Height="70">
+                <Label Content="Kategorije clanaka" DockPanel.Dock="Top" Height="70" FontSize="22" HorizontalAlignment="Center" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+                <Separator DockPanel.Dock="Bottom"/>
+            </DockPanel>
+            <Button Content="Dodaj kategoriju" Height="70" Click="addCategory" FontSize="15" Margin="20, 0, 20, 0" BorderBrush="#9c9c9c" BorderThickness="1, 1, 3, 3" Foreground="White" Background="#FF00BFBE"/>
+            <Label HorizontalAlignment="Center" FontSize="15" Margin="0, 20, 0, 20">Postojece kategorije</Label>
+            <Border Style="{StaticResource datagrid}" Margin="20, 0, 20, 0">
+                <DataGrid HorizontalScrollBarVisibility="Hidden" AutoGenerateColumns="False" RowHeight="70" HeadersVisibility="None" GridLinesVisibility="Horizontal" ItemsSource="{Binding Categories, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Height="200" VerticalScrollBarVisibility="Hidden" x:Name="datagrid" SelectionChanged="check">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn IsReadOnly="True" Width="*" Binding="{Binding Name.Value}" FontSize="15" x:Name="categories"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+            <TextBlock IsEnabled="False" Text="Naziv selektovane kategorije: " HorizontalAlignment="Center" FontSize="15" Margin="0, 20, 0, 20"/>
+            <TextBox MaxLength="50" Text="{Binding ElementName=datagrid, Path=SelectedItem.Name, Mode=OneWay}" FontSize="15" Margin="20, 0, 20, 0" x:Name="textBox" Height="30" TextChanged="isUnique"/>
+            <Label Content="Kategorija vec postoji!" HorizontalAlignment="Center" FontSize="12" Foreground="Red" Visibility="Hidden" x:Name="poruka"/>
+            <DockPanel Height="50" Margin="20">
+                <Button Content="Izmeni" Width="185" Click="update" DockPanel.Dock="Left" Margin="0, 0, 10, 0" BorderBrush="#9c9c9c" BorderThickness="1, 1, 3, 3" Background="White" Foreground="Black" x:Name="updateButton"/>
+                <Button Content="Izbrisi" Click="delete" DockPanel.Dock="Right" Margin="10, 0, 0, 0" BorderBrush="#9c9c9c" BorderThickness="1, 1, 3, 3" Background="White" Foreground="Black" x:Name="deleteButton"/>
+            </DockPanel>
+        </StackPanel>
+    </DockPanel>
+</Page>

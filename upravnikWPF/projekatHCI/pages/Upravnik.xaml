@@ -1,0 +1,208 @@
+﻿<Window x:Class="projekatHCI.pages.Upravnik"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:projekatHCI.pages"
+        mc:Ignorable="d" Style="{DynamicResource MyStyle}"
+        Title="Upravnik"  Height="400" Width="800"
+        WindowStartupLocation="CenterScreen"
+        >
+
+    <DockPanel Margin="0,0,-8,0" >
+        <DockPanel DockPanel.Dock="Top" Margin="0,0,10,0" Height="44">
+            <TextBlock DockPanel.Dock="Left" FontWeight="Bold" FontSize="25">LOGO BOLNICE</TextBlock>
+            <Image x:Name="image" DockPanel.Dock="Right" Height="44" Width="52" Source="/projekatHCI;component/images/plus.png" RenderTransformOrigin="2.577,0.469" MouseDown="image_MouseDown"/>
+            <Image x:Name="image1" Height="42" HorizontalAlignment="Right"  Width="53" Source="/projekatHCI;component/images/logout.png" MouseDown="image1_MouseDown" Cursor="Hand"/>
+
+        </DockPanel>
+
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,0,4,0" Height="91" RenderTransformOrigin="0.5,0.5">
+            <DockPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DockPanel.RenderTransform>
+            <Grid Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="91"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                
+                    <Image x:Name="image2" Grid.Column="0" Grid.Row="0"  HorizontalAlignment="Left" Height="47" Margin="58,14,0,0" VerticalAlignment="Top" Width="94" Source="/projekatHCI;component/images/profile.png"  RenderTransformOrigin="0.5,0.5" Cursor="Hand" MouseDown="image2_MouseDown" >
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="179.46"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                     </Image>
+                    
+                
+                <Image x:Name="image3" Grid.Column="1"  MouseDown="image3_MouseDown" HorizontalAlignment="Left" Height="47" Margin="57,14,0,0" VerticalAlignment="Top" Width="69" Source="/projekatHCI;component/images/menu.png" Cursor="Hand"/>
+                <Image x:Name="image5" Grid.Column="2" MouseDown="image5_MouseDown" HorizontalAlignment="Left" Height="38" Margin="58,20,0,0" VerticalAlignment="Top" Width="90" Source="/projekatHCI;component/images/blog.png" RenderTransformOrigin="0.5,0.5" Cursor="Hand">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="180.338"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Image x:Name="image9" Grid.Column="3" MouseDown="image9_MouseDown" HorizontalAlignment="Left" Height="50" Margin="60,20,0,0" VerticalAlignment="Top" Width="45" RenderTransformOrigin="0.47,0.97" Source="/projekatHCI;component/images/contrast.png" Cursor="Hand"/>
+                <Image x:Name="image10" Grid.Column="4" HorizontalAlignment="Left" MouseDown="image10_MouseDown" Height="37" Margin="49,20,0,0" VerticalAlignment="Top" Width="75" Source="/projekatHCI;component/images/color.jpg" Cursor="Hand"/>
+
+                <Separator Height="71" Margin="121,1,121,0" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.258"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <Separator Height="71" Margin="115,-1,119,0" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Grid.Column="1">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.258"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <Separator Height="71" Margin="118,-1,117,0" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Grid.Column="2">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.258"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <Separator Height="71" Margin="117,-4,118,0" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5" Grid.Column="3">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.258"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <Separator Height="71" Margin="-5,41,4,-21" VerticalAlignment="Top" Grid.ColumnSpan="5" RenderTransformOrigin="0.5,0.5">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-179.842"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+                <Separator Height="71" Margin="121,1,121,0" VerticalAlignment="Top" Grid.ColumnSpan="2" RenderTransformOrigin="0.5,0.5">
+                    <Separator.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90.258"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Separator.RenderTransform>
+                </Separator>
+
+
+            </Grid>
+        </DockPanel>
+        <StackPanel DockPanel.Dock="Left" Orientation="Vertical" Width="398" Margin="0,0,0,-19" >
+            <DockPanel>
+                <Ellipse HorizontalAlignment="Left" Height="120"  Width="137"  Margin="114,0,0,0">
+                    <Ellipse.Fill>
+                        <ImageBrush ImageSource="/projekatHCI;component/images/image.png" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <Image DockPanel.Dock="Right" HorizontalAlignment="Right" Source="/projekatHCI;component/images/edit.png" Width="40" Height="40" Margin="0,-12,0,9"/>
+            </DockPanel>
+            <Label x:Name="label" Content="Ime i prezime"  FontWeight="Bold" FontSize="30" Height="48" Margin="88,0,102,0"/>
+            <Label x:Name="label1" Content="Upravnik" FontSize="20" FontStyle="Italic" Margin="136,0,170,0"/>
+            <StackPanel Orientation="Horizontal" Height="41" Margin="68,0,98,0">
+                <Image x:Name="image4" HorizontalAlignment="Left" Height="33" Margin="27,0,0,0" Width="39" Source="/projekatHCI;component/images/star.png"/>
+                <Image x:Name="image4_Copy" HorizontalAlignment="Left" Height="33" Width="38" Source="/projekatHCI;component/images/star.png" RenderTransformOrigin="0.038,0.439"/>
+                <Image x:Name="image4_Copy1" HorizontalAlignment="Left" Height="33"  Width="39" Source="/projekatHCI;component/images/star.png"/>
+                <Image x:Name="image4_Copy2" HorizontalAlignment="Left" Height="33" Width="39" Source="/projekatHCI;component/images/star.png"/>
+
+                <Image x:Name="image4_Copy3" HorizontalAlignment="Left" Height="33" Width="39" Source="/projekatHCI;component/images/star.png" Margin="0,4"/>
+            </StackPanel>
+
+
+        </StackPanel>
+        <Grid DockPanel.Dock="Right" Margin="0,0,0,-19">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="0">
+
+                <Label Content="Broj telefona" FontWeight="Bold">
+                </Label>
+                <DockPanel Margin="0,0,10,0">
+                    <TextBox FontSize="20" FontWeight="Light" Cursor="Pen"  BorderThickness="0" Width="332">0656732400</TextBox>
+                    
+                    <Image DockPanel.Dock="Right" Cursor="Pen" HorizontalAlignment="Right" Source="/projekatHCI;component/images/edit.png" Width="40" Height="40"/>
+                </DockPanel>
+
+                <Separator/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="0">
+                <Label Content="E-mail" FontWeight="Bold">
+                </Label>
+                <DockPanel Margin="0,0,10,0">
+                    <TextBox FontSize="20" FontWeight="Light" Cursor="Pen" BorderThickness="0" Width="336" Text="{Binding Path=Mejl,UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBox>
+                    <Image DockPanel.Dock="Right" Cursor="Pen" HorizontalAlignment="Right" Source="/projekatHCI;component/images/edit.png" Width="40" Height="40"></Image>
+                </DockPanel>
+
+                <Separator/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,81,0,6" Grid.RowSpan="2">
+                <Label Content="Datum rodjenja" FontWeight="Bold">
+                </Label>
+                <DockPanel Margin="0,0,10,0" Height="37">
+                    <TextBox FontSize="20" FontWeight="Light" Cursor="Pen" BorderThickness="0" Width="326" Margin="0,0,0,10">09.11.1998.</TextBox>
+                    <Image DockPanel.Dock="Right" Cursor="Pen" HorizontalAlignment="Right" Source="/projekatHCI;component/images/edit.png" Width="40" Height="40" RenderTransformOrigin="0.575,0.325" Margin="0,-12,0,9"/>
+                </DockPanel>
+
+
+            </StackPanel>
+
+        </Grid>
+        <Button x:Name="button" Height="250" VerticalAlignment="Top" Width="3"/>
+
+
+
+
+    </DockPanel>
+
+</Window>

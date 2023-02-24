@@ -1,0 +1,33 @@
+﻿<Window x:Class="Sekretar_WPF_Project.Windows.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar_WPF_Project.Windows"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="250" Width="350">
+    <Grid>
+        <DockPanel>
+            <StackPanel Name="Stack1" DockPanel.Dock="Top" Orientation="Vertical" >
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Label Name="ClinicLabel" FontWeight="Bold" FontFamily="Copperplate Gothic Bold" Background="White" FontSize="18" Content="Clinic" />
+                    <Image Height="30" Source="/Windows/cliniclogo.png"/>
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel DockPanel.Dock="Bottom" Background="DodgerBlue" Orientation="Vertical">
+
+                <Label Content="    Username" FontSize="18"  FontWeight="Bold" FontFamily="Copperplate Gothic Bold"/>
+                <TextBox Name="usernametextbox" Margin="20,0,20,10" Height="25"/>
+                <Label Content="    Password" FontSize="18"  FontWeight="Bold" FontFamily="Copperplate Gothic Bold"/>
+                <PasswordBox Name="passwordbox" Height="25" Margin="20,0,20,20"/>
+                <Button Content="Login" Width="75" FontSize="14" Click="Login_Click"/>
+
+
+
+            </StackPanel>
+        </DockPanel>
+
+
+    </Grid>
+</Window>

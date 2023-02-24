@@ -1,0 +1,57 @@
+﻿<Application x:Class="lekar_wpf.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:lekar_wpf"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+
+        <Style TargetType="Separator">
+            <Setter Property="Background" Value="#9c9c9c"/>
+        </Style>
+
+        <Style TargetType="Border" x:Key="datagrid">
+            <Setter Property="BorderThickness" Value="1, 1, 3, 3"/>
+            <Setter Property="CornerRadius" Value="5"/>
+            <Setter Property="BorderBrush" Value="#9c9c9c"/>
+        </Style>
+
+        <Style TargetType="ComboBoxItem">
+            <Setter Property="Height" Value="50"/>
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="Background" Value="White"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="BorderBrush" Value="{x:Null}"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="15"/>
+        </Style>
+
+        <Style TargetType="DataGrid">
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#9c9c9c"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="VerticalGridLinesBrush" Value="#9c9c9c"/>
+        </Style>
+
+    </Application.Resources>
+</Application>

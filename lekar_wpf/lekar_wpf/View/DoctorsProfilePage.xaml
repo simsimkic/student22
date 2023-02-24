@@ -1,0 +1,166 @@
+﻿<Page x:Class="lekar_wpf.View.DoctorsProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf.View"
+      xmlns:project="clr-namespace:lekar_wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="DoctorsProfilePage">
+
+    <DockPanel Background="White">
+        <DockPanel DockPanel.Dock="Top" Height="86">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0F74F3" Offset="0"/>
+                    <GradientStop Color="#FF00BFBE" Offset="1"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+            <Label DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="35" FontWeight="Light" FontStyle="Oblique" Margin="10">Klinika Zdravlje</Label>
+            <Image DockPanel.Dock="Right" Source="images/notificationicon.png" HorizontalAlignment="Right" Width="40" Height="40" Margin="20" MouseDown="viewNotifications"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical">
+                <Separator DockPanel.Dock="Bottom" Background="Black"/>
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" VerticalAlignment="Bottom">
+                    <Button Width="86" Height="86" Click="viewProfile" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Width="40" Height="40" Source="images/doctoricon.png" Opacity="0.701"/>
+                                <Label FontSize="15" Opacity="0.7">Profil</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewPatients" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/patientsicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Pacijenti</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewDrugs" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/drugsicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Lekovi</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewSchedule" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/scheduleicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Raspored</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewBlog" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/blogicon.png" Width="40" Height="40" Opacity="0.65"/>
+                                <Label FontSize="15" Opacity="0.7">Blog</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="FontSize" Value="18"/>
+                    </Style>
+                </Grid.Resources>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="75"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="140"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="110"/>
+                </Grid.RowDefinitions>
+                <Image Source="images/infoicon.png" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Height="40" Width="40" HorizontalAlignment="Left" MouseDown="viewHelpPage"/>
+                <Border Grid.Row="1" Grid.Column="2" Height="140" Width="140" CornerRadius="70" Background="White" BorderBrush="#9c9c9c" BorderThickness="1, 1, 3, 3">
+                    <Image Source="images/profileimage.png" Height="100" Width="100"/>
+                </Border>
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <Label HorizontalAlignment="Center" FontSize="22" Height="35" Content="{Binding signedIn.name}"/>
+                        <Label HorizontalAlignment="Center" FontSize="22" Height="35" Content="{Binding signedIn.surname}"/>
+                    </StackPanel>
+                    
+                    <Label HorizontalAlignment="Center" FontSize="15" Content="{Binding signedIn.Specialization}"/>
+                    <DockPanel HorizontalAlignment="Center">
+                        <Label DockPanel.Dock="Left" HorizontalAlignment="Center" FontSize="15" Content="Ocena: "/>
+                        <Label DockPanel.Dock="Right" HorizontalAlignment="Center" FontSize="15" Content="{Binding signedIn.Rating}"/>
+                    </DockPanel>
+                    
+                </StackPanel>
+                <Image Source="images/settingsicon.png" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom"  HorizontalAlignment="Left" Height="30" Width="30" MouseDown="viewSettingsPage"/>
+                <Separator Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top" Background="#9c9c9c"/>
+                <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" Margin="20" Style="{StaticResource datagrid}">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="FontSize" Value="15"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" Grid.Column="0">
+                            <Label Margin="15, 0, 0, 0" DockPanel.Dock="Left" VerticalAlignment="Center">Broj telefona</Label>
+                            <Label Margin="0, 0, 15, 0" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding signedIn.PhoneNumber}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="1" Grid.Column="0" VerticalAlignment="Top" Background="#9c9c9c"/>
+                        <DockPanel Grid.Row="1" Grid.Column="0">
+                            <Label Margin="15, 0, 0, 0" DockPanel.Dock="Left" VerticalAlignment="Center">E-mail adresa</Label>
+                            <Label Margin="0, 0, 15, 0" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding signedIn.email}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="2" Grid.Column="0" VerticalAlignment="Top" Background="#9c9c9c"/>
+                        <DockPanel Grid.Row="2" Grid.Column="0">
+                            <Label Margin="15, 0, 0, 0" DockPanel.Dock="Left" VerticalAlignment="Center">Adresa stanovanja</Label>
+                            <Label Margin="0, 0, 15, 0" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding signedIn.Address}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="3" Grid.Column="0" VerticalAlignment="Top" Background="#9c9c9c"/>
+                        <DockPanel Grid.Row="3" Grid.Column="0">
+                            <Label Margin="15, 0, 0, 0" DockPanel.Dock="Left" VerticalAlignment="Center">Datum rođenja</Label>
+                            <Label Margin="0, 0, 15, 0" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding BirthDate}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="4" Grid.Column="0" VerticalAlignment="Top" Background="#9c9c9c"/>
+                        <DockPanel Grid.Row="4" Grid.Column="0">
+                            <Label Margin="15, 0, 0, 0" DockPanel.Dock="Left" VerticalAlignment="Center">JMBG</Label>
+                            <Label Margin="0, 0, 15, 0" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding signedIn.Jmbg}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="5" Grid.Column="0" VerticalAlignment="Top" Background="#9c9c9c"/>
+                        <DockPanel Grid.Row="5" Grid.Column="0">
+                            <Label Margin="15, 0, 0, 0" DockPanel.Dock="Left" VerticalAlignment="Center">Broj licence</Label>
+                            <Label Margin="0, 0, 15, 0" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding signedIn.LicenseNumber}"/>
+                        </DockPanel>
+                    </Grid>
+                </Border>
+                <Button Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" Content="Odjavi se" Foreground="White" FontSize="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="logOut" Background="#FF00BFBE" Margin="20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+</Page>

@@ -1,0 +1,163 @@
+﻿<Page x:Class="lekar_wpf.View.HospitalizationHistoryPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="HospitalizationHistoryPage">
+
+    <DockPanel Background="White">
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Hidden">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Istorija bolesti" HorizontalAlignment="Center" FontSize="22" Margin="0, 20, 0, 0"/>
+                <Border Margin="20" Style="{StaticResource datagrid}">
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="FontSize" Value="15"/>
+                            </Style>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="15"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="210"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="15"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="70"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <DockPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Naziv zdravstvene ustanove</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6">Klinika Zdravlje</Label>
+                        </DockPanel>
+                        <Separator Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Odeljenje na prijemu</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6">Kardiologija</Label>
+                        </DockPanel>
+                        <Separator Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Broj istorije bolesti</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6">1859/20</Label>
+                        </DockPanel>
+                        <Separator Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Datum pocetka lecenja</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6">07/06/2020</Label>
+                        </DockPanel>
+                        <Separator Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Button Content="Izmeni" Width="70" DockPanel.Dock="Right" Height="50" Click="editHospitalizationEndDate" Foreground="White" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" Background="#FF00BFBE" BorderThickness="0, 0, 1, 1" BorderBrush="#9c9c9c">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Datum kraja lecenja</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding EndOfHospitalization}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Ime i prezime</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding selectedPatient.FullName}"/> 
+                        </DockPanel>
+                        <Separator Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">JMBG</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding selectedPatient.Jmbg}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Datum rodjenja</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding selectedPatient.BirthDate}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Pol</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding selectedPatient.Gender}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Mesto stanovanja i opstina</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding selectedPatient.City}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Ulica i broj</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding selectedPatient.Address}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="11" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="11" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Broj telefona</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6" Content="{Binding selectedPatient.PhoneNumber}"/>
+                        </DockPanel>
+                        <Separator Grid.Row="12" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="12" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Uputna dijagnoza</Label>
+                            <Label DockPanel.Dock="Bottom" VerticalAlignment="Center" HorizontalAlignment="Left" Opacity="0.6">Pneumonia</Label>
+                        </DockPanel>
+                        <Separator Grid.Row="13" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="13" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Button Content="Dodaj" Width="70" DockPanel.Dock="Right" Height="50" Click="addDiagnosisCode" Foreground="White" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" Background="#FF00BFBE" BorderThickness="0, 0, 1, 1" BorderBrush="#9c9c9c">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Pratece dijagnoza po MKB</Label>
+                            <DataGrid DockPanel.Dock="Bottom" VerticalAlignment="Center" ItemsSource="{Binding diagnosisCodes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" RowHeight="30" HorizontalScrollBarVisibility="Hidden" AutoGenerateColumns="False" HeadersVisibility="None" GridLinesVisibility="None" BorderBrush="{x:Null}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding}" Width="*" FontSize="15"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </DockPanel>
+                        <Separator Grid.Row="14" Grid.Column="0" Grid.ColumnSpan="5" VerticalAlignment="Top"/>
+                        <DockPanel Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="3">
+                            <Button Content="Dodaj" Width="70" DockPanel.Dock="Right" Height="50" Click="addProcedureCode" Foreground="White" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Right" Background="#FF00BFBE" BorderThickness="0, 0, 1, 1" BorderBrush="#9c9c9c">
+                                <Button.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="10"/>
+                                    </Style>
+                                </Button.Resources>
+                            </Button>
+                            <Label DockPanel.Dock="Top" VerticalAlignment="Center">Sifre procedura po nomenklaturi</Label>
+                            <DataGrid DockPanel.Dock="Bottom" VerticalAlignment="Center" ItemsSource="{Binding procedureCodes, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" RowHeight="30" HorizontalScrollBarVisibility="Hidden" AutoGenerateColumns="False" HeadersVisibility="None" GridLinesVisibility="None" BorderBrush="{x:Null}">
+                                <DataGrid.Columns>
+                                    <DataGridTextColumn Binding="{Binding}" Width="*" FontSize="15"/>
+                                </DataGrid.Columns>
+                            </DataGrid>
+                        </DockPanel>
+                    </Grid>
+                </Border>
+                <DockPanel Height="90">
+                    <Button Content="Zatvori" DockPanel.Dock="Left" Click="leave" Foreground="White" FontSize="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="#FF00BFBE" Margin="20, 0, 20, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </DockPanel>
+            </StackPanel>
+        </ScrollViewer>
+    </DockPanel>
+</Page>

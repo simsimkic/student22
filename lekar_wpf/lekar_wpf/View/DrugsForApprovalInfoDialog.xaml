@@ -1,0 +1,69 @@
+﻿<Window x:Class="lekar_wpf.View.DrugsForApprovalInfoDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lekar_wpf.View"
+        mc:Ignorable="d"
+        Title="DrugsForApprovalInfoDialog" Height="440" Width="360"
+        WindowStyle="None"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Border BorderBrush="#9c9c9c" BorderThickness="1, 1, 3, 3">
+        <Grid>
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="15"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="90"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Row="0" Grid.Column="1">
+                <Label DockPanel.Dock="Left" VerticalAlignment="Center">Naziv</Label>
+                <Label DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding selectedDrug.Name}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="1" Grid.Column="1">
+                <Label DockPanel.Dock="Left" VerticalAlignment="Center">Proizvodjac</Label>
+                <Label DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding selectedDrug.Manufacturer}"/>
+            </DockPanel>
+            <DockPanel Grid.Row="2" Grid.Column="1">
+                <Label DockPanel.Dock="Left" VerticalAlignment="Center">Kolicina</Label>
+                <Label DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Right" Content="{Binding selectedDrug.Quantity}"/>
+            </DockPanel>
+            <StackPanel Grid.Row="3" Grid.Column="1">
+                <Label>Lista sastojaka</Label>
+                <DataGrid x:Name="datagrid" ItemsSource="{Binding selectedDrug.Ingredients}" HeadersVisibility="None" AutoGenerateColumns="False" GridLinesVisibility="None" VerticalScrollBarVisibility="Auto" Height="140" RowHeight="40">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding}" Width="*" IsReadOnly="True"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+            <DockPanel Grid.Row="4" Height="90" Grid.Column="0" Grid.ColumnSpan="3">
+                <Button Content="Odbij" FontSize="15" DockPanel.Dock="Left" Width="150" Click="refuse" Name="buttonRefuse" Foreground="Black" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="White" Margin="20, 0, 10, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Button Content="Odobri" DockPanel.Dock="Right" Click="approve" x:Name="buttonApprove" Foreground="White" FontSize="15" VerticalAlignment="Top" HorizontalAlignment="Stretch" Background="#FF00BFBE" Margin="10, 0, 20, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+            </DockPanel>
+        </Grid>
+    </Border>
+    
+</Window>

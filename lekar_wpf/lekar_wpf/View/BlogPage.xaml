@@ -1,0 +1,153 @@
+﻿<Page x:Class="lekar_wpf.View.BlogPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="BlogPage">
+
+    <DockPanel Background="White">
+        <DockPanel.Resources>
+            <Style TargetType="Button">
+                <Setter Property="BorderBrush" Value="{x:Null}"/>
+            </Style>
+        </DockPanel.Resources>
+        <DockPanel DockPanel.Dock="Top" Height="86">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0F74F3" Offset="0"/>
+                    <GradientStop Color="#FF00BFBE" Offset="1"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+            <Label DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="35" FontWeight="Light" FontStyle="Oblique" Margin="10">Klinika Zdravlje</Label>
+            <Image DockPanel.Dock="Right" Source="images/notificationicon.png" HorizontalAlignment="Right" Width="40" Height="40" Margin="20" MouseDown="viewNotifications"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical">
+                <Separator DockPanel.Dock="Bottom" Background="Black"/>
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" VerticalAlignment="Bottom">
+                    <Button Width="86" Height="86" Click="viewProfile" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Width="40" Height="40" Source="images/doctoricon.png" Opacity="0.701"/>
+                                <Label FontSize="15" Opacity="0.7">Profil</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewPatients" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/patientsicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Pacijenti</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewDrugs"  Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/drugsicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Lekovi</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewSchedule" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="scheduleicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Raspored</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewBlog" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/blogicon.png" Width="40" Height="40" Opacity="0.65"/>
+                                <Label FontSize="15" Opacity="0.7">Blog</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Background" Value="White"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="110"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0">
+                    <Button DockPanel.Dock="Left" Content="Napisi clanak" Foreground="White" FontSize="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="writeArticle" Background="#FF00BFBE" Margin="20, 20, 10, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Width="185" Height="70">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                    <Button DockPanel.Dock="Right" Content="Upravljaj kategorijama" Foreground="Black" FontSize="15" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="manageCategories" Background="White" Margin="10, 20, 20, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Width="185" Height="70">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </Button.Resources>
+                    </Button>
+                </DockPanel>
+                <ComboBox Grid.Row="1" Height="50" Width="200" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Name="comboBox" ItemsSource="{Binding Categories}" SelectionChanged="showArticlesByCategory" SelectedIndex="0">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Name.Value}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Border Grid.Row="2" Margin="20" Style="{StaticResource datagrid}">
+                    <DataGrid HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding articlesByCategory}" AutoGenerateColumns="False" RowHeight="140" HeadersVisibility="None" GridLinesVisibility="Horizontal">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="*" IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <DockPanel>
+                                            <TextBlock Text="{Binding Headline.Value}" FontSize="15" DockPanel.Dock="Top" Margin="15" TextWrapping="Wrap"/>
+                                            <Label FontSize="15" DockPanel.Dock="Left" Background="#FF00BFBE" Foreground="White" Height="30" BorderThickness="0, 0, 1, 1" BorderBrush="#9c9c9c" Margin="15, 0, 0, 15" Content="{Binding Category.Name.Value}" HorizontalAlignment="Left"/>
+                                            <Label FontSize="15" DockPanel.Dock="Right" HorizontalAlignment="Right" Margin="0, 0, 15, 0" Content="{Binding Date}"/>
+                                        </DockPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                        <DataGrid.RowDetailsTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="55"/>
+                                    </Grid.RowDefinitions>
+                                    <TextBox Grid.Row="0" Margin="15" FontSize="15" TextWrapping="Wrap" HorizontalAlignment="Stretch" Width="350" BorderThickness="0" Background="{x:Null}" Text="{Binding Text.Value}"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Label Grid.Row="1" FontSize="15" DockPanel.Dock="Left" Background="#FF00BFBE" Foreground="White" Height="30" BorderThickness="0, 0, 1, 1" BorderBrush="#9c9c9c" Margin="15, 0, 0, 15" HorizontalAlignment="Left" Content="{Binding Author.Name}"/>
+                                        <Label Grid.Row="1" FontSize="15" DockPanel.Dock="Left" Background="#FF00BFBE" Foreground="White" Height="30" BorderThickness="0, 0, 1, 1" BorderBrush="#9c9c9c" Margin="15, 0, 0, 15" HorizontalAlignment="Left" Content="{Binding Author.Surname}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </DataTemplate>
+                        </DataGrid.RowDetailsTemplate>
+                    </DataGrid>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+</Page>

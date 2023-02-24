@@ -1,0 +1,118 @@
+﻿<Window x:Class="projekatHCI.pages.PremestanjeOpreme3"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:projekatHCI.pages"
+        mc:Ignorable="d" Style="{DynamicResource MyStyle}"
+        Title="PremestanjeOpreme3" Height="400" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel  Margin="0,0,-8,0">
+        <DockPanel DockPanel.Dock="Top" Margin="0,0,10,0" Height="44">
+            <TextBlock DockPanel.Dock="Left" FontWeight="Bold" FontSize="25">LOGO BOLNICE</TextBlock>
+            <Image x:Name="image" DockPanel.Dock="Right" Height="44" Width="52" Source="/projekatHCI;component/images/plus.png" RenderTransformOrigin="2.577,0.469"/>
+            <Image x:Name="image1" Height="42" HorizontalAlignment="Right"  Width="53" Source="/projekatHCI;component/images/logout.png" MouseDown="image1_MouseDown" Cursor="Hand"/>
+
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,0,4,0" Height="91" RenderTransformOrigin="0.5,0.5">
+            <DockPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </DockPanel.RenderTransform>
+            <Grid Margin="0,0,0,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="47*"/>
+                    <RowDefinition Height="34*"/>
+                </Grid.RowDefinitions>
+                <Button Margin="8,9,408,-2"  Click="Button_Click_1"  RenderTransformOrigin="0.5,0.5" FontWeight="Bold"  FontSize="40" Grid.RowSpan="2">
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform> Dalje
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                            <Setter Property="BorderBrush" Value="DarkGray" />
+                            <Setter Property="BorderThickness" Value="1,1,2,2" />
+                        </Style>
+                    </Button.Resources>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="Linen"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="LemonChiffon"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button Margin="393,7,9,-1" RenderTransformOrigin="0.5,0.5" FontSize="40" FontWeight="Bold" Grid.RowSpan="2" Click="Button_Click" >
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="20"/>
+                            <Setter Property="BorderBrush" Value="DarkGray" />
+                            <Setter Property="BorderThickness" Value="1,1,2,2" />
+                        </Style>
+                    </Button.Resources>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Background" Value="WhiteSmoke"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="FloralWhite"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="-1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>Nazad
+                </Button>
+
+            </Grid>
+        </DockPanel>
+        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="788" >
+            <Label FontWeight="ExtraLight" Margin="0,0,352,170">Odabir sobe u koju se vrsi premestanje:</Label>
+            <ListView Margin="0,53,0,0" Foreground="Black" x:Name="listView2"  ItemsSource="{Binding SobeLista}" SelectionChanged="listView2_SelectionChanged" FontSize="25"  >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="800" DisplayMemberBinding="{Binding Ime}">Ime sobe</GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+
+    </DockPanel>
+</Window>

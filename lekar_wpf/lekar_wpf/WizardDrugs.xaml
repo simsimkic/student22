@@ -1,0 +1,37 @@
+﻿<Page x:Class="lekar_wpf.WizardDrugs"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="WizardDrugs">
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF0F74F3" Offset="1"/>
+                <GradientStop Color="#FF00BFBE" Offset="0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="360"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0" Background="White" Width="260" Height="260" CornerRadius="130" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Image Source="pills.png" Width="200" Height="200"/>
+        </Border>
+        <TextBlock Grid.Row="1" Text="Lekovi" FontSize="30" FontWeight="Bold" Foreground="White" Margin="0, 20, 0, 0" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Text="Spisak svih lekova na jednom mestu. Jednostavno mozete pratiti listu odobrenih, kao i neodobrenih lekova. Pogledajte informacije o leku, umanjite kolicinu utrosenog leka. Odobrite lekove i pri tome vrsite korekciju neispravnih informaciji." FontSize="18" FontStyle="Italic" Foreground="White" HorizontalAlignment="Center" TextWrapping="Wrap" Width="320" TextAlignment="Center"/>
+        <Button Grid.Row="3" Content="Dalje" FontSize="18" Background="White" Foreground="#FF0F74F3" Margin="0, 0, 85, 0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="120" Height="50" Click="next" BorderThickness="0, 0, 1, 1" BorderBrush="#9c9c9c">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Page>

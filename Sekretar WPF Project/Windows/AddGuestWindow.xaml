@@ -1,0 +1,98 @@
+﻿<Window x:Class="Sekretar_WPF_Project.AddGuestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar_WPF_Project"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        mc:Ignorable="d"
+        Title="Add Guest" Height="700" Width="800" Background="{DynamicResource CustomBackgroundColor}">
+
+    <Window.Resources>
+        <SolidColorBrush x:Key="CustomBackgroundColor" />
+        <SolidColorBrush x:Key="CustomLabelColor" />
+
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="{DynamicResource CustomLabelColor}" />
+        </Style>
+
+    </Window.Resources>
+    <Grid>
+        <StackPanel Margin="40,20,40,20">
+            <DockPanel Height="40" Margin="10,10,10,10">
+                <Label DockPanel.Dock="Left" FontSize="18" Width="200">
+                    Personal ID (JMBG)
+                </Label>
+                <TextBox Name="idtextbox" DockPanel.Dock="Right" FontSize="16">
+                
+                </TextBox>
+            </DockPanel>
+            <DockPanel Height="40" Margin="10,10,10,10">
+                <Label DockPanel.Dock="Left" FontSize="18" Width="200" Content="Name"/>
+                <TextBox Name="name" DockPanel.Dock="Right" FontSize="16"/>
+            </DockPanel>
+
+            <DockPanel Height="40" Margin="10,10,10,10">
+                <Label DockPanel.Dock="Left" FontSize="18" Width="200" Content="Surname"/>
+                <TextBox Name="surname" DockPanel.Dock="Right" FontSize="16"/>
+            </DockPanel>
+
+            <DockPanel Height="40" Margin="10,10,10,10">
+                <Label DockPanel.Dock="Left" FontSize="18" Width="200" Content="Phone Number"/>
+                <TextBox Name="phone" DockPanel.Dock="Right" FontSize="16"/>
+            </DockPanel>
+            <DockPanel Height="40" Margin="10,10,10,10">
+                <Label DockPanel.Dock="Left" FontSize="18" Width="200" Content="E-mail"/>
+                <TextBox Name="email" DockPanel.Dock="Right" FontSize="16"/>
+            </DockPanel>
+            <DockPanel Height="40" Margin="10,10,10,10">
+                <Label DockPanel.Dock="Left" FontSize="18" Width="200">
+                    Appointment Date
+                </Label>
+                <DatePicker Name="datepicker" DockPanel.Dock="Right" FontSize="16">
+                    
+                </DatePicker>
+            </DockPanel>
+
+
+            <DockPanel Height="40" Margin="10,10,10,10">
+                <Label DockPanel.Dock="Left" FontSize="18" Width="200">
+                    Appointment Time
+                </Label>
+                <DockPanel>
+                    <xctk:TimePicker Name="timepickerstart" DockPanel.Dock="Left" Width="200">
+                    </xctk:TimePicker>
+                    <Label Content="        to" FontSize="17" Width="100"/>
+                    <xctk:TimePicker Name="timepickerend" DockPanel.Dock="Right">
+                    </xctk:TimePicker>
+                </DockPanel>
+            </DockPanel>
+
+            <DockPanel Height="40" Margin="10,10,10,10">
+                <Label DockPanel.Dock="Left" FontSize="18" Width="200">
+                    Appointment Room
+                </Label>
+
+                <ComboBox Name="roompicker" ItemsSource="{Binding Rooms}" DisplayMemberPath="RoomNumber"
+           DockPanel.Dock="Right" FontSize="16">
+                    
+                </ComboBox>
+            </DockPanel>
+
+            <DockPanel Height="40" Margin="10,10,10,10">
+                <Label DockPanel.Dock="Left" FontSize="18" Width="200">
+                    Doctor
+                </Label>
+                <ComboBox Name ="doctorpicker" ItemsSource="{Binding Doctors}" DisplayMemberPath="LicenseNumber"
+           DockPanel.Dock="Right" FontSize="16">
+                    
+                </ComboBox>
+            </DockPanel>
+            <DockPanel Height="40" Margin="10,25,10,10">
+                <Button DockPanel.Dock="Left" Margin="230,0,0,0" FontSize="16" Width="200" Content="Submit" Click="Button_Submit"/>
+                <Button DockPanel.Dock="Right" FontSize="16" Width="200" Content="Cancel" Click="Button_Cancel"/>
+            </DockPanel>
+            
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,108 @@
+﻿<Page x:Class="lekar_wpf.View.PatientsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="PatientsPage">
+
+    <DockPanel Background="White">
+        <DockPanel DockPanel.Dock="Top" Height="86">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0F74F3" Offset="0"/>
+                    <GradientStop Color="#FF00BFBE" Offset="1"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+            <Label DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="35" FontWeight="Light" FontStyle="Oblique" Margin="10">Klinika Zdravlje</Label>
+            <Image DockPanel.Dock="Right" Source="images/notificationicon.png" HorizontalAlignment="Right" Width="40" Height="40" Margin="20" MouseDown="viewNotifications"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical">
+                <Separator DockPanel.Dock="Bottom" Background="Black"/>
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" VerticalAlignment="Bottom">
+                    <Button Width="86" Height="86" Click="viewProfile" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Width="40" Height="40" Source="images/doctoricon.png" Opacity="0.701"/>
+                                <Label FontSize="15" Opacity="0.7">Profil</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewPatients" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/patientsicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Pacijenti</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewDrugs" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/drugsicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Lekovi</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewSchedule" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/scheduleicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Raspored</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewBlog" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/blogicon.png" Width="40" Height="40" Opacity="0.65"/>
+                                <Label FontSize="15" Opacity="0.7">Blog</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Height="50" Width="50" Click="searchPatients" Background="{x:Null}"  BorderBrush="{x:Null}" VerticalAlignment="Bottom">
+                    <Button.Content>
+                        <Image Source="images/searchicon.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Grid.Row="1" Height="20" Width="20" HorizontalAlignment="Left" Name="sort" Background="{x:Null}"  BorderBrush="{x:Null}">
+                    <Button.Content>
+                        <Image Source="images/sorticon.png"/>
+                    </Button.Content>
+                </Button>
+                <Border Grid.Row="3" Margin="20" Style="{StaticResource datagrid}">
+                    <DataGrid Grid.Row="3" HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding patients, Mode=OneWay}" AutoGenerateColumns="False" RowHeight="70" HeadersVisibility="None" GridLinesVisibility="Horizontal" SelectionChanged="viewPatientsProfile" x:Name="datagrid">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="70" IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Height="50" Width="50" CornerRadius="25" BorderBrush="Black" BorderThickness="2">
+                                            <Border.Background>
+                                                <ImageBrush Stretch="Fill" ImageSource="images/profileimage.png"/>
+                                            </Border.Background>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Width="*" FontSize="15"/>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Surname}" Width="*" FontSize="15"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+</Page>

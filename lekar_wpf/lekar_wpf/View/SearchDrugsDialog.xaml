@@ -1,0 +1,68 @@
+﻿<Window x:Class="lekar_wpf.View.SearchDrugsDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lekar_wpf.View"
+        mc:Ignorable="d"
+        Title="SearchDrugsDialog" Height="490" Width="350"
+        WindowStyle="None"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Border BorderBrush="#9c9c9c" BorderThickness="1, 1, 3, 3">
+        <Grid Background="White">
+            <Grid.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="18"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="FontSize" Value="18"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="110"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"/>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition Width="210"/>
+                <ColumnDefinition Width="20"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">Naziv</Label>
+            <TextBox MaxLength="50" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" DockPanel.Dock="Right" VerticalAlignment="Center" x:Name="name"/>
+            <Label Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">Proizvodjac</Label>
+            <TextBox MaxLength="50" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Center" x:Name="manufacturer"/>
+            <Label Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">Sastojci</Label>
+            <DockPanel Grid.Row="2" Grid.Column="2" HorizontalAlignment="Stretch">
+                <Button Content="Dodaj" DockPanel.Dock="Right" Width="40" Height="25" Click="addIngridient" Foreground="White" Background="#FF00BFBE" BorderBrush="#9c9c9c" BorderThickness="0, 0, 1, 1" IsEnabled="{Binding isButtonEnabled}"/>
+                <TextBox MaxLength="50" Name="sastojci" HorizontalAlignment="Stretch" DockPanel.Dock="Left" VerticalAlignment="Center" TextChanged="checkButton"/>
+            </DockPanel>
+            <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2">
+                <Label>Lista sastojaka</Label>
+                <DataGrid Name="datagrid" ItemsSource="{Binding Ingridients}" HeadersVisibility="None" AutoGenerateColumns="False" Background="White" GridLinesVisibility="None">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Binding="{Binding}" Width="*" FontSize="15"/>
+                        <DataGridTemplateColumn Width="50">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="Izbaci" Click="removeIngridient" Background="White" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+            <Button Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="4" Click="beginSearch" Foreground="White" FontSize="15" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="#FF00BFBE" Margin="20, 20, 20, 20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70" Content="Pretrazi">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="10"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+    </Border>
+    
+</Window>

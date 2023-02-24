@@ -1,0 +1,75 @@
+﻿<Window x:Class="HCI.LogInWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI"
+        mc:Ignorable="d"
+        Style="{DynamicResource MyStyle}"
+        WindowStartupLocation="CenterScreen"
+        Title="Bolnica" Height="504" Width="400" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Opacity" Value="0.8" />
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Button.Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="CadetBlue" Direction="270" ShadowDepth="2" BlurRadius="10" Opacity="0.7" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="50,30,29.6,0" Height="414" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="83*"/>
+            <ColumnDefinition Width="711*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="emailLabel" Content="E-mail" HorizontalAlignment="Left" Margin="0,87,0,0" VerticalAlignment="Top" Width="134" Height="25" RenderTransformOrigin="0.384,-1.443" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="email" HorizontalAlignment="Left" Height="23" Margin="0,112,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="280" Grid.ColumnSpan="2" BorderBrush="LightSkyBlue" BorderThickness="2"/>
+        <Label x:Name="passwordLabel" Content="Lozinka" HorizontalAlignment="Left" Margin="0,135,0,0" VerticalAlignment="Top" Width="134" Height="25" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="passwordBox" HorizontalAlignment="Left" Margin="0,165,0,0" VerticalAlignment="Top" Width="280" Height="23" Grid.ColumnSpan="2" BorderBrush="LightSkyBlue" BorderThickness="2"/>
+        <Button x:Name="prijava" BorderBrush="Transparent"  Background="DeepSkyBlue" Foreground="White" Content="PRIJAVA" HorizontalAlignment="Left" Height="68" Margin="0,212,0,0" VerticalAlignment="Top" Width="280" Click="Button_Click" FontSize="25" Grid.ColumnSpan="2">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+                <Style TargetType="Button">
+                    <Setter Property="Button.Effect">
+                        <Setter.Value>
+                            <DropShadowEffect Color="CadetBlue" Direction="270" ShadowDepth="2" BlurRadius="10" Opacity="0.7" />
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <CheckBox x:Name="checkBox" Content="Zapamti moje podatke" HorizontalAlignment="Left" Margin="5,285,0,0" VerticalAlignment="Top" Width="176" Checked="CheckBox_Checked" Grid.ColumnSpan="2"/>
+        <Image x:Name="image" Source="Slike/bolnica.png" HorizontalAlignment="Left" Height="83" Margin="164.2,1,0,0" VerticalAlignment="Top" Width="83" Grid.Column="1"/>
+        <Label HorizontalAlignment="Left" Margin="0,335,0,49" VerticalAlignment="Center" Height="30" Grid.ColumnSpan="2">
+            <Run Text="Nemate nalog?"/>
+        </Label>
+        <Button BorderBrush="LightSkyBlue" BorderThickness="2" Background="White" Foreground="DeepSkyBlue" FontWeight="Bold" Height="30" Content="REGISTRACIJA" FontSize="12" Margin="0,365,211.6,19" Grid.ColumnSpan="2" Click="Button_Click_1">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button Height="30" BorderBrush="Transparent" FontWeight="Bold" BorderThickness="1" Foreground="White" Background="LightSkyBlue" Content="PRISTUP BEZ NALOGA" FontSize="12" Margin="0,365,33.6,19" Grid.Column="1" HorizontalAlignment="Right" Width="162" Click="Button_Click_2">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</Window>

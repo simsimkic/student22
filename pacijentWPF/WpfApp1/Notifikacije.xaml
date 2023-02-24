@@ -1,0 +1,30 @@
+﻿<Window x:Class="HCI.Notifikacije"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI"
+        mc:Ignorable="d"
+        Style="{DynamicResource MyStyle}"
+        WindowStartupLocation="CenterScreen"
+        Title="Notifikacije" Height="600" Width="400">
+    <Grid Width="350" Height="500" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Grid Width="350" Height="450" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <DataGrid x:Name="DataGridBlog" Margin="0,0,0,0" Width="348" Height="400" FontSize="15" Background="White" BorderThickness="0" HeadersVisibility="None" ColumnWidth="348" RowHeight="50" AutoGenerateColumns="True" IsReadOnly="True" ItemsSource="{Binding Path=Obavestenja}" GridLinesVisibility="Horizontal" SelectionMode="Single" AutoGeneratingColumn="generateColumns"/>
+        </Grid>
+        <Button x:Name="nazad" BorderBrush="Transparent" BorderThickness="1" Foreground="White" Background="DeepSkyBlue" Content="NAZAD" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="40" Width="130" Click="Nazad_Click" Margin="0,0,0,20">
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect Color="CadetBlue" Direction="270" ShadowDepth="2" BlurRadius="10" Opacity="0.7" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

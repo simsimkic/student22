@@ -1,0 +1,28 @@
+﻿<Window x:Class="HCI.Pomoc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HCI"
+        WindowStartupLocation="CenterScreen"
+        Style="{DynamicResource MyStyle}"
+        mc:Ignorable="d"
+        Title="Pomoc" Height="470" Width="450">
+    <Grid Height="390" Width="350">
+        <Image x:Name="image" Source="Slike/pomoc.jpg" Width="350" Height="Auto" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <Button  x:Name="nazad" BorderThickness="2" BorderBrush="LightBlue" Foreground="White" Background="DeepSkyBlue" Content="NAZAD" FontSize="16" Margin="0,0,0,15" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="150" Height="40" Click="Nazad_Click">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="Effect">
+                        <Setter.Value>
+                            <DropShadowEffect Color="CadetBlue" Direction="270" ShadowDepth="2" BlurRadius="10" Opacity="0.7" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Resources>
+        </Button>
+    </Grid>
+</Window>

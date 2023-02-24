@@ -1,0 +1,148 @@
+﻿<Page x:Class="lekar_wpf.View.DrugsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:lekar_wpf.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="750" d:DesignWidth="430"
+      Title="DrugsPage">
+
+    <DockPanel Background="White">
+        <DockPanel DockPanel.Dock="Top" Height="86">
+            <DockPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF0F74F3" Offset="0"/>
+                    <GradientStop Color="#FF00BFBE" Offset="1"/>
+                </LinearGradientBrush>
+            </DockPanel.Background>
+            <Label DockPanel.Dock="Left" VerticalAlignment="Center" FontSize="35" FontWeight="Light" FontStyle="Oblique" Margin="10">Klinika Zdravlje</Label>
+            <Image DockPanel.Dock="Right" Source="images/notificationicon.png" HorizontalAlignment="Right" Width="40" Height="40" Margin="20" MouseDown="viewNotifications"/>
+        </DockPanel>
+        <DockPanel DockPanel.Dock="Bottom">
+            <StackPanel DockPanel.Dock="Bottom" Orientation="Vertical">
+                <Separator DockPanel.Dock="Bottom" Background="Black"/>
+                <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" VerticalAlignment="Bottom">
+                    <Button Width="86" Height="86" Click="viewProfile" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Width="40" Height="40" Source="images/doctoricon.png" Opacity="0.701"/>
+                                <Label FontSize="15" Opacity="0.7">Profil</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewPatients" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/patientsicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Pacijenti</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewDrugs" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/drugsicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Lekovi</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewSchedule" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/scheduleicon.png" Width="40" Height="40" Opacity="0.7"/>
+                                <Label FontSize="15" Opacity="0.7">Raspored</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                    <Button Width="86" Height="86" Click="viewBlog" Background="#FFEBEBEB">
+                        <Button.Content>
+                            <StackPanel Orientation="Vertical">
+                                <Image Source="images/blogicon.png" Width="40" Height="40" Opacity="0.65"/>
+                                <Label FontSize="15" Opacity="0.7">Blog</Label>
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </DockPanel>
+        <ScrollViewer DockPanel.Dock="Top" VerticalScrollBarVisibility="Hidden">
+            <Grid>
+                <Grid.Resources>
+                    <Style TargetType="DataGridCell">
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="Background" Value="#FFFDFDFD"/>
+                                <Setter Property="Foreground" Value="Black"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="110"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="70"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="0" Content="Izvestaj o potrosnji" Foreground="White" FontSize="18" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Click="generateDrugsReport" Background="#FF00BFBE" Margin="20" BorderThickness="1, 1, 3, 3" BorderBrush="#9c9c9c" Height="70">
+                    <Button.Resources>
+                        <Style TargetType="Border">
+                            <Setter Property="CornerRadius" Value="10"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+                    <ComboBox Height="50" Width="200" SelectedIndex="0" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Name="comboBox" SelectionChanged="comboBox_SelectionChanged">
+                        <ComboBoxItem Content="Lekovi u upotrebi"/>
+                        <ComboBoxItem Content = "Lekovi za reviziju"/>
+                    </ComboBox>
+                    <Image Source="tooltipicon.png" Height="20" Width="20" Margin="10, 0, 0, 0">
+                        <Image.ToolTip>
+                            <ToolTip Placement="Left" VerticalOffset="20" Background="White" BorderBrush="Black" BorderThickness="1">
+                                <ToolTip.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="CornerRadius" Value="15, 0, 15, 0"/>
+                                    </Style>
+                                </ToolTip.Resources>
+                                <StackPanel Orientation="Vertical" Width="200">
+                                    <TextBlock Text="Ukoliko odaberete opciju Lekovi u upotrebi, dobicete prikaz odobrenih lekova koji se nalaze na stanju. Odabirom leka iz liste dobicete prikaz informacija o njemu, a imate opciju i da unesete utrosak tog leka" TextWrapping="Wrap" Margin="0, 0, 0, 10"/>
+                                    <TextBlock Text="Ukoliko odaberete opciju Lekovi za reviziju, dobicete prikaz lekova koji jos uvek nisu odabrani. Mozete vrsiti njihovo odobravanje uz eventualnu izmenu netacnih podataka." TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </ToolTip>
+                        </Image.ToolTip>
+                    </Image>
+                </StackPanel>
+                <Button Grid.Row="2" Height="50" Width="50" Click="searchDrugs" Background="{x:Null}">
+                    <Button.Content>
+                        <Image Source="images/searchicon.png"/>
+                    </Button.Content>
+                </Button>
+                <Button Grid.Row="3" Height="20" Width="20" HorizontalAlignment="Left" Name="sort" Background="{x:Null}">
+                    <Button.Content>
+                        <Image Source="images/sorticon.png"/>
+                    </Button.Content>
+                </Button>
+                <Border Grid.Row="4" Margin="20" Style="{StaticResource datagrid}">
+                    <DataGrid Grid.Row="4" HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding PresentedDrugs, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" AutoGenerateColumns="False" RowHeight="70" HeadersVisibility="None" GridLinesVisibility="Horizontal" SelectionChanged="viewDrugInfo" x:Name="datagrid">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn Width="70" IsReadOnly="True">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Border Height="50" Width="50" CornerRadius="25" BorderBrush="#9c9c9c" BorderThickness="1">
+                                            <Border.Background>
+                                                <ImageBrush ImageSource="pills.png" Stretch="Fill"/>
+                                            </Border.Background>
+                                        </Border>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn IsReadOnly="True" Binding="{Binding Name}" Width="*" FontSize="15"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+</Page>
